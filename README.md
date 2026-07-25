@@ -124,7 +124,7 @@ Optimized for
 
 # 🌍 Live Demo
 
-https://astra-os-virid.vercel.app/
+astra-os-virid.vercel.app
 
 ---
 
