@@ -4,8 +4,7 @@
 
 ### Interstellar Mission Operating System
 
-astra-os-virid.vercel.app
-
+https://astra-os-virid.vercel.app/
 
 ## 🌌 Overview
 
