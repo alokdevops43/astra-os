@@ -1,0 +1,86 @@
+/* Scene 2: Boot CSS */
+
+.hologram-rig {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex; flex-direction: column; align-items: center;
+    text-align: center;
+}
+
+.orbital-rings {
+    position: relative;
+    width: 400px; height: 400px;
+    margin-bottom: -50px;
+    transform-style: preserve-3d;
+    transform: rotateX(70deg) rotateY(15deg);
+}
+
+.ring {
+    position: absolute; top:0; left:0; width:100%; height:100%;
+    border-radius: 50%; border: 1px solid rgba(0,240,255,0.2);
+}
+.r1 { border-top: 3px solid var(--brand-accent); animation: spin3D 4s linear infinite; }
+.r2 { width: 80%; height: 80%; top: 10%; left: 10%; border-right: 3px solid var(--brand-alert); animation: spin3D 6s linear infinite reverse; }
+.r3 { width: 60%; height: 60%; top: 20%; left: 20%; border-bottom: 3px solid var(--brand-primary); animation: spin3D 10s linear infinite; }
+
+.glitch-text {
+    font-size: 4rem;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--brand-accent);
+    position: relative;
+    text-shadow: 0 0 20px rgba(0,240,255,0.5);
+}
+.glitch-text::before, .glitch-text::after {
+    content: attr(data-text); position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
+.glitch-text::before {
+    left: 2px; text-shadow: -2px 0 var(--brand-alert);
+    clip: rect(24px, 550px, 90px, 0); animation: glitch 3s infinite linear alternate-reverse;
+}
+.glitch-text::after {
+    left: -2px; text-shadow: -2px 0 var(--brand-accent);
+    clip: rect(85px, 550px, 140px, 0); animation: glitch 2.5s infinite linear alternate-reverse;
+}
+
+.terminal-logs {
+    width: 500px; height: 120px;
+    margin: 30px 0;
+    font-family: var(--font-tech); font-size: 0.75rem; color: var(--brand-accent);
+    text-align: left; overflow: hidden;
+    position: relative;
+}
+.terminal-logs::after {
+    content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 40px;
+    background: linear-gradient(to top, var(--bg-void), transparent);
+}
+
+.log-line { margin-bottom: 5px; opacity: 0.8; }
+.log-line.success { color: #10b981; }
+.log-line.error { color: var(--brand-alert); }
+
+.loading-bar-wrapper {
+    width: 500px; height: 2px;
+    background: rgba(255,255,255,0.1);
+    position: relative; overflow: hidden;
+}
+.loading-bar-fill {
+    position: absolute; top:0; left:0; height:100%; width: 0%;
+    background: var(--brand-accent);
+    box-shadow: 0 0 10px var(--brand-accent);
+    transition: width 0.1s linear;
+}
+
+@keyframes spin3D {
+    0% { transform: rotateZ(0deg); }
+    100% { transform: rotateZ(360deg); }
+}
+
+@keyframes glitch {
+    0% { clip: rect(72px, 9999px, 80px, 0); }
+    20% { clip: rect(31px, 9999px, 14px, 0); }
+    40% { clip: rect(100px, 9999px, 83px, 0); }
+    60% { clip: rect(9px, 9999px, 48px, 0); }
+    80% { clip: rect(16px, 9999px, 93px, 0); }
+    100% { clip: rect(78px, 9999px, 2px, 0); }
+}

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURORA | Launch Sequence</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Lora:ital,wght@0,400;0,500&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/launch-center.css">
+</head>
+<body>
+
+    <!-- Camera Shake Container -->
+    <div id="camera-rig">
+        <div id="cinematic-stage">
+            
+            <!-- Warp Canvas (Hidden until launch) -->
+            <canvas id="warp-canvas"></canvas>
+
+            <div class="launch-environment">
+                <!-- Rocket Visual -->
+                <div class="rocket-container" id="rocket">
+                    <svg viewBox="0 0 100 400" class="rocket-svg">
+                        <!-- Rocket Body -->
+                        <path d="M 50 0 C 80 50 80 300 80 350 L 20 350 C 20 300 20 50 50 0 Z" fill="rgba(255,255,255,0.05)" stroke="#fff" stroke-width="2"/>
+                        <!-- Engine Nozzle -->
+                        <path d="M 30 350 L 70 350 L 80 380 L 20 380 Z" fill="#333" stroke="#fff" stroke-width="2"/>
+                        <!-- Window -->
+                        <circle cx="50" cy="100" r="10" fill="var(--brand-accent)"/>
+                    </svg>
+                    <!-- Engine Glow -->
+                    <div class="engine-glow" id="engine-glow"></div>
+                </div>
+                
+                <!-- Heavy Smoke Layer -->
+                <div class="smoke-layer" id="smoke"></div>
+
+                <!-- Launch UI -->
+                <div class="launch-ui" id="launch-ui">
+                    <h1 class="countdown-timer tech-mono" id="timer">T-MINUS 10</h1>
+                    
+                    <div class="fuel-meters">
+                        <div class="meter">
+                            <div class="lbl tech-mono">LIQUID O2</div>
+                            <div class="bar"><div class="fill alert-pulse" style="width: 100%"></div></div>
+                        </div>
+                        <div class="meter">
+                            <div class="lbl tech-mono">SOLID FUEL</div>
+                            <div class="bar"><div class="fill" style="width: 100%"></div></div>
+                        </div>
+                    </div>
+
+                    <button class="cta-button magnetic" id="btn-ignite">
+                        INITIATE IGNITION
+                        <svg viewBox="0 0 100 20" class="btn-border"><path d="M0,20 L10,0 L90,0 L100,20 Z" fill="none" stroke="currentColor"/></svg>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Global Nav HUD (Fades out during launch) -->
+    <nav class="global-hud" id="global-nav">
+        <a href="index.html">01 ARRIVAL</a>
+        <a href="boot.html">02 BOOT</a>
+        <a href="mission-control.html">03 COMMAND</a>
+        <a href="galaxy-map.html">04 GALAXY</a>
+        <a href="planet-explorer.html">05 PLANETS</a>
+        <a href="research-lab.html">06 RESEARCH</a>
+        <a href="ai-core.html">07 AI</a>
+        <a href="launch-center.html" class="active">08 LAUNCH</a>
+    </nav>
+
+    <script src="js/engine.js"></script>
+    <script src="js/launch.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURORA | Planet Explorer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Lora:ital,wght@0,400;0,500&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/planet-explorer.css">
+</head>
+<body>
+
+    <div id="cinematic-stage">
+        
+        <!-- Massive immersive planet background -->
+        <div class="planet-background">
+            <img src="https://images.unsplash.com/photo-1614730321146-b6fa6a46bcb4?q=80&w=2000&auto=format&fit=crop" class="planet-img parallax-bg" alt="Alien Planet Surface">
+            <div class="horizon-glow"></div>
+            <!-- Parallax Mountain Layer -->
+            <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?q=80&w=2000&auto=format&fit=crop" class="mountain-img parallax-fg" alt="Mountains">
+        </div>
+
+        <div class="planet-ui">
+            <!-- Left Info Panel -->
+            <div class="floating-panel info-panel magnetic fade-up">
+                <h1 class="planet-name">KEPLER-186F</h1>
+                <div class="planet-class tech-mono">CLASS M // HABITABLE</div>
+                <p class="planet-desc">An Earth-sized exoplanet orbiting within the habitable zone of a red dwarf. Dense atmosphere with high concentrations of nitrogen and oxygen.</p>
+                <div class="stats-grid">
+                    <div class="stat"><span>GRAVITY</span> 1.1G</div>
+                    <div class="stat"><span>TEMP</span> 15°C</div>
+                    <div class="stat"><span>DAY</span> 130h</div>
+                </div>
+            </div>
+
+            <!-- Right Atmosphere Analysis -->
+            <div class="floating-panel atmos-panel magnetic fade-up delay-1">
+                <h3 class="tech-mono">ATMOSPHERIC MAKEUP</h3>
+                <div class="atmos-chart">
+                    <div class="atmos-bar" style="width: 78%;"><span class="lbl">N2</span><span class="pct">78%</span></div>
+                    <div class="atmos-bar" style="width: 21%; background: var(--brand-accent);"><span class="lbl">O2</span><span class="pct">21%</span></div>
+                    <div class="atmos-bar" style="width: 1%; background: var(--brand-alert);"><span class="lbl">AR</span><span class="pct">1%</span></div>
+                </div>
+                <div class="scan-line"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Global Nav HUD -->
+    <nav class="global-hud">
+        <a href="index.html">01 ARRIVAL</a>
+        <a href="boot.html">02 BOOT</a>
+        <a href="mission-control.html">03 COMMAND</a>
+        <a href="galaxy-map.html">04 GALAXY</a>
+        <a href="planet-explorer.html" class="active">05 PLANETS</a>
+        <a href="research-lab.html">06 RESEARCH</a>
+        <a href="ai-core.html">07 AI</a>
+        <a href="launch-center.html">08 LAUNCH</a>
+    </nav>
+
+    <script src="js/engine.js"></script>
+    <script src="js/planet.js"></script>
+</body>
+</html>

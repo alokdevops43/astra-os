@@ -1,0 +1,80 @@
+/* Scene 6: Research Lab CSS */
+
+.lab-environment {
+    width: 100%; height: 100%; position: relative;
+    background: #02040a;
+}
+
+.blueprint-grid {
+    position: absolute; top:0; left:0; width: 100%; height: 100%;
+    background-image: 
+        linear-gradient(rgba(0,240,255,0.1) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,240,255,0.1) 1px, transparent 1px);
+    background-size: 40px 40px;
+    z-index: 1; pointer-events: none;
+    mask-image: radial-gradient(circle at center, black 20%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle at center, black 20%, transparent 80%);
+}
+
+.hologram-display {
+    position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%) rotateX(30deg);
+    width: 1000px; height: 600px;
+    z-index: 5;
+    transform-style: preserve-3d;
+}
+.stark-svg { width: 100%; height: 100%; filter: drop-shadow(0 0 20px rgba(0,240,255,0.5)); }
+
+.spin-slow { transform-origin: 0 0; animation: spin 20s linear infinite; }
+.spin-reverse { transform-origin: 0 0; animation: spin 15s linear infinite reverse; }
+.core-pulse { animation: pulse 2s infinite alternate; }
+
+.circuit-path {
+    stroke-dasharray: 500; stroke-dashoffset: 500;
+    animation: dash 3s ease-in-out forwards 1s;
+}
+
+.energy-particle { filter: drop-shadow(0 0 10px #fff); }
+
+/* Side Panels */
+.side-panel {
+    position: absolute; top: 50%; transform: translateY(-50%);
+    width: 350px; z-index: 10;
+    background: rgba(0,10,20,0.8);
+    border: 1px solid rgba(0,240,255,0.3);
+    padding: 30px;
+    backdrop-filter: blur(10px);
+}
+.left-panel { left: 5vw; border-left: 4px solid var(--brand-accent); }
+.right-panel { right: 5vw; border-right: 4px solid var(--brand-accent); }
+
+.side-panel h2, .side-panel h3 { color: var(--brand-accent); margin-bottom: 15px; }
+.side-panel p { color: rgba(255,255,255,0.7); line-height: 1.5; margin-bottom: 20px; font-size: 0.9rem; }
+
+.blueprint-btn {
+    display: inline-block; padding: 10px 20px;
+    border: 1px solid var(--brand-accent);
+    color: var(--brand-accent); font-family: var(--font-tech); font-size: 0.8rem;
+    transition: all 0.3s;
+}
+.blueprint-btn:hover { background: rgba(0,240,255,0.2); box-shadow: 0 0 20px rgba(0,240,255,0.4); }
+
+.metric-row {
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.1); padding: 10px 0;
+    font-family: var(--font-tech); font-size: 0.9rem;
+}
+.metric-row span { color: rgba(255,255,255,0.5); font-size: 0.75rem; }
+
+@keyframes spin { 100% { transform: rotate(360deg); } }
+@keyframes pulse { 0% { transform: scale(0.95); opacity: 0.8; } 100% { transform: scale(1.05); opacity: 1; box-shadow: 0 0 50px var(--brand-accent); } }
+@keyframes dash { to { stroke-dashoffset: 0; } }
+
+.fade-up { opacity: 0; transform: translateY(40px) rotateX(30deg); animation: fadeUpAnim 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.left-panel.fade-up { transform: translateY(-50%); }
+.right-panel.fade-up { transform: translateY(-50%); }
+
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 0.8s; }
+
+@keyframes fadeUpAnim { 100% { opacity: 1; transform: translateY(-50%); } }

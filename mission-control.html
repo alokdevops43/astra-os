@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURORA | Mission Control</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Lora:ital,wght@0,400;0,500&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/mission-control.css">
+</head>
+<body>
+
+    <div id="cinematic-stage">
+        
+        <!-- The Holographic Room Layout -->
+        <div class="holo-room">
+            
+            <!-- Left Wing -->
+            <div class="holo-panel wing left-wing">
+                <div class="panel-header tech-mono">SECTOR RADAR</div>
+                <div class="radar-display">
+                    <div class="radar-grid"></div>
+                    <div class="radar-sweep"></div>
+                    <div class="blip b1"></div>
+                    <div class="blip b2"></div>
+                </div>
+                <div class="data-stream tech-mono">
+                    <div>> SC_701: CLEAR</div>
+                    <div>> SC_702: CLEAR</div>
+                    <div class="alert">> SC_703: ANOMALY</div>
+                </div>
+            </div>
+
+            <!-- Center Console -->
+            <div class="holo-panel center-console">
+                <h1 class="console-title">COMMAND<br>CENTER</h1>
+                <div class="svg-connections">
+                    <svg viewBox="0 0 400 200">
+                        <path d="M 50 100 L 150 100 L 200 50 L 300 50" fill="none" stroke="var(--brand-accent)" stroke-width="2" class="anim-path"/>
+                        <circle cx="50" cy="100" r="4" fill="var(--brand-accent)"/>
+                        <circle cx="300" cy="50" r="4" fill="var(--brand-accent)"/>
+                    </svg>
+                </div>
+                <div class="status-grid">
+                    <div class="status-box">
+                        <div class="lbl tech-mono">HULL</div>
+                        <div class="val">98%</div>
+                    </div>
+                    <div class="status-box">
+                        <div class="lbl tech-mono">POWER</div>
+                        <div class="val" style="color: var(--brand-accent);">100%</div>
+                    </div>
+                    <div class="status-box">
+                        <div class="lbl tech-mono">SHIELDS</div>
+                        <div class="val">NOMINAL</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Wing -->
+            <div class="holo-panel wing right-wing">
+                <div class="panel-header tech-mono">LIVE TELEMETRY</div>
+                <div class="telemetry-chart">
+                    <!-- CSS animated chart bars -->
+                    <div class="chart-bar" style="height: 40%; animation-delay: 0s;"></div>
+                    <div class="chart-bar" style="height: 80%; animation-delay: 0.1s;"></div>
+                    <div class="chart-bar" style="height: 60%; animation-delay: 0.2s;"></div>
+                    <div class="chart-bar" style="height: 90%; animation-delay: 0.3s;"></div>
+                    <div class="chart-bar" style="height: 30%; animation-delay: 0.4s;"></div>
+                    <div class="chart-bar" style="height: 70%; animation-delay: 0.5s;"></div>
+                </div>
+                <div class="signal-beam">
+                    <div class="beam-core"></div>
+                    <div class="beam-pulse"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    
+    <nav class="global-hud">
+        <a href="index.html">01 ARRIVAL</a>
+        <a href="boot.html">02 BOOT</a>
+        <a href="mission-control.html" class="active">03 COMMAND</a>
+        <a href="galaxy-map.html">04 GALAXY</a>
+        <a href="planet-explorer.html">05 PLANETS</a>
+        <a href="research-lab.html">06 RESEARCH</a>
+        <a href="ai-core.html">07 AI</a>
+        <a href="launch-center.html">08 LAUNCH</a>
+    </nav>
+
+    <script src="js/engine.js"></script>
+</body>
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AURORA | Research Lab</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400&family=Lora:ital,wght@0,400;0,500&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/core.css">
+    <link rel="stylesheet" href="css/research-lab.css">
+</head>
+<body>
+
+    <div id="cinematic-stage">
+        
+        <div class="lab-environment">
+            <!-- Blueprint Grid Background -->
+            <div class="blueprint-grid"></div>
+
+            <div class="hologram-display fade-up">
+                <svg viewBox="0 0 1000 600" class="stark-svg">
+                    <!-- Core Engine Schematic -->
+                    <g transform="translate(500, 300)">
+                        <circle cx="0" cy="0" r="150" fill="none" stroke="var(--brand-accent)" stroke-width="1" class="spin-slow" stroke-dasharray="10 5"/>
+                        <circle cx="0" cy="0" r="180" fill="none" stroke="var(--brand-accent)" stroke-width="2" class="spin-reverse" stroke-dasharray="50 20"/>
+                        <circle cx="0" cy="0" r="80" fill="rgba(0,240,255,0.1)" stroke="var(--brand-accent)" stroke-width="3" class="core-pulse"/>
+                        
+                        <!-- Energy Circuits radiating out -->
+                        <path d="M 0 -180 L 0 -250 L 150 -250" fill="none" stroke="var(--brand-accent)" stroke-width="2" class="circuit-path"/>
+                        <path d="M 180 0 L 300 0 L 300 100" fill="none" stroke="var(--brand-accent)" stroke-width="2" class="circuit-path"/>
+                        <path d="M -180 0 L -300 0 L -300 -100" fill="none" stroke="var(--brand-accent)" stroke-width="2" class="circuit-path"/>
+                        <path d="M 0 180 L 0 250 L -150 250" fill="none" stroke="var(--brand-accent)" stroke-width="2" class="circuit-path"/>
+
+                        <!-- Flowing Energy Particles -->
+                        <circle r="4" fill="#fff" class="energy-particle">
+                            <animateMotion dur="2s" repeatCount="indefinite" path="M 0 -180 L 0 -250 L 150 -250" />
+                        </circle>
+                        <circle r="4" fill="#fff" class="energy-particle">
+                            <animateMotion dur="2.5s" repeatCount="indefinite" path="M 180 0 L 300 0 L 300 100" />
+                        </circle>
+                    </g>
+                </svg>
+            </div>
+
+            <!-- UI Panels overlaying the blueprint -->
+            <div class="side-panel left-panel fade-up delay-1">
+                <h2 class="tech-mono">FUSION DRIVE MK-IV</h2>
+                <p>Experimental dark matter containment field. Efficiency rating: 98.4%. Warning: Do not exceed 1.5M Kelvin in inner core.</p>
+                <div class="blueprint-btn magnetic">RUN SIMULATION</div>
+            </div>
+
+            <div class="side-panel right-panel fade-up delay-2">
+                <h3 class="tech-mono">CONTAINMENT METRICS</h3>
+                <div class="metric-row"><span>MAGNETIC FLUX</span> 4.2 T</div>
+                <div class="metric-row"><span>CORE TEMP</span> 1.2M K</div>
+                <div class="metric-row"><span>PLASMA DENSITY</span> OPTIMAL</div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <nav class="global-hud">
+        <a href="index.html">01 ARRIVAL</a>
+        <a href="boot.html">02 BOOT</a>
+        <a href="mission-control.html">03 COMMAND</a>
+        <a href="galaxy-map.html">04 GALAXY</a>
+        <a href="planet-explorer.html">05 PLANETS</a>
+        <a href="research-lab.html" class="active">06 RESEARCH</a>
+        <a href="ai-core.html">07 AI</a>
+        <a href="launch-center.html">08 LAUNCH</a>
+    </nav>
+
+    <script src="js/engine.js"></script>
+</body>
+</html>

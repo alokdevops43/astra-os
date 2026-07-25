@@ -1,0 +1,43 @@
+/* Scene 4: Galaxy Map CSS */
+
+#deep-galaxy-canvas {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: 10; cursor: move;
+}
+
+.map-overlay {
+    position: absolute; top: 5vh; left: 5vw; z-index: 20;
+    pointer-events: none;
+}
+.map-overlay h1 {
+    font-size: 2rem; color: var(--brand-accent); letter-spacing: 0.3em; margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(0,240,255,0.5);
+}
+
+.target-lock {
+    display: flex; align-items: center; gap: 20px;
+    background: rgba(0, 10, 20, 0.6); backdrop-filter: blur(10px);
+    border: 1px solid rgba(0,240,255,0.2); padding: 15px; width: 300px;
+    border-radius: 4px; position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+.target-lock::before {
+    content: ''; position: absolute; left: 0; top: 0; height: 100%; width: 3px;
+    background: var(--brand-alert);
+}
+.lock-svg {
+    width: 60px; height: 60px;
+    animation: rotateSlow 10s linear infinite;
+}
+.lock-info { font-family: var(--font-tech); }
+.lock-info .lbl { font-size: 1.2rem; color: #fff; margin-bottom: 5px; }
+.lock-info .val { font-size: 0.8rem; color: var(--brand-alert); letter-spacing: 0.1em; }
+
+@keyframes rotateSlow { 100% { transform: rotate(360deg); } }
+
+.fade-up {
+    opacity: 0; transform: translateY(20px);
+    animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.delay-1 { animation-delay: 0.4s; }
+@keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }

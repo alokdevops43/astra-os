@@ -1,0 +1,105 @@
+/* Scene 1: Arrival CSS */
+
+.earth-container {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -20%);
+    width: 1200px; height: 1200px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.earth-sphere {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background: url('https://upload.wikimedia.org/wikipedia/commons/c/c3/Solarsystemscope_texture_8k_earth_daymap.jpg') repeat-x;
+    background-size: auto 100%;
+    /* Create depth and shadow */
+    box-shadow: inset -100px -100px 200px rgba(0,0,0,0.9), inset 0 0 100px rgba(0,240,255,0.2);
+    filter: brightness(0.7) contrast(1.2);
+    animation: rotateEarth 180s linear infinite;
+    mask-image: radial-gradient(circle, black 40%, transparent 70%);
+    -webkit-mask-image: radial-gradient(circle, black 40%, transparent 70%);
+}
+
+.earth-atmosphere {
+    position: absolute; top: -10px; left: -10px; right: -10px; bottom: -10px;
+    border-radius: 50%;
+    box-shadow: 0 0 100px rgba(0, 240, 255, 0.4), inset 0 0 50px rgba(0, 240, 255, 0.6);
+    opacity: 0.6;
+    animation: atmosBreathe 8s infinite alternate;
+}
+
+.hero-content {
+    position: absolute;
+    top: 45%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center;
+    width: 100%;
+}
+
+.hero-title {
+    font-size: 12vw;
+    letter-spacing: 0.15em;
+    color: transparent;
+    -webkit-text-stroke: 2px var(--brand-primary);
+    margin: -20px 0 20px 0;
+    text-shadow: 0 0 40px rgba(0,240,255,0.3);
+}
+
+.hero-subtitle {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto 50px auto;
+}
+
+.cta-button {
+    display: inline-flex; align-items: center; justify-content: center;
+    padding: 15px 40px;
+    color: var(--brand-accent);
+    font-family: var(--font-tech); font-size: 0.9rem; letter-spacing: 0.2em; text-decoration: none;
+    position: relative;
+    background: rgba(0,240,255,0.05);
+    backdrop-filter: blur(5px);
+    clip-path: polygon(10px 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%, 0 10px);
+    transition: all 0.3s;
+}
+
+.cta-button:hover {
+    background: rgba(0,240,255,0.2);
+    color: #fff;
+    box-shadow: 0 0 30px rgba(0,240,255,0.4);
+}
+
+.btn-border {
+    position: absolute; top:0; left:0; width:100%; height:100%; pointer-events:none;
+    stroke-width: 1; opacity: 0.5;
+}
+.cta-button:hover .btn-border { opacity: 1; stroke-width: 2; }
+
+/* Animations */
+@keyframes rotateEarth {
+    0% { background-position: 0 0; }
+    100% { background-position: -200% 0; }
+}
+
+@keyframes atmosBreathe {
+    0% { opacity: 0.4; transform: scale(1); }
+    100% { opacity: 0.8; transform: scale(1.02); }
+}
+
+.fade-up {
+    opacity: 0; transform: translateY(40px);
+    animation: fadeUpAnim 1.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+.delay-1 { animation-delay: 0.5s; }
+.delay-2 { animation-delay: 0.8s; }
+.delay-3 { animation-delay: 1.2s; }
+.delay-4 { animation-delay: 1.6s; }
+
+@keyframes fadeUpAnim {
+    100% { opacity: 1; transform: translateY(0); }
+}

@@ -1,0 +1,109 @@
+:root {
+    --bg-void: #020308;
+    --brand-primary: #f2f2f2;
+    --brand-accent: #00e5ff;
+    --brand-alert: #ff2a2a;
+    
+    --font-display: 'Lora', serif;
+    --font-tech: 'Space Grotesk', monospace;
+    --font-ui: 'Inter', sans-serif;
+    
+    --transition-cinematic: 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-snappy: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    cursor: none; /* Custom cursor */
+}
+
+body {
+    background-color: var(--bg-void);
+    color: var(--brand-primary);
+    font-family: var(--font-ui);
+    overflow: hidden; /* No scrollbars ever in this experience */
+    -webkit-font-smoothing: antialiased;
+    width: 100vw; height: 100vh;
+}
+
+/* Base Typography Layering */
+h1, h2, h3, h4, h5 { font-family: var(--font-display); font-weight: 400; line-height: 1.1; }
+.tech-mono { font-family: var(--font-tech); text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.75rem; }
+
+/* The Stage - Every page uses this wrapper */
+#cinematic-stage {
+    position: relative; width: 100%; height: 100%;
+    perspective: 2000px; /* Deep perspective for 3D elements */
+    opacity: 0; /* Fade in handled by engine.js */
+    transition: opacity var(--transition-cinematic);
+}
+
+/* Background Canvas Layer (Shared across all scenes) */
+#engine-canvas {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -100; pointer-events: none;
+}
+
+/* Grain/Scanline Overlay (The Film Look) */
+#film-overlay {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    pointer-events: none; z-index: 9990;
+    background: radial-gradient(circle at center, transparent 40%, rgba(0,0,0,0.8) 100%),
+                repeating-linear-gradient(0deg, rgba(0,0,0,0.1) 0px, rgba(0,0,0,0.1) 2px, transparent 2px, transparent 4px);
+}
+
+/* Magnetic Cursor */
+#director-cursor {
+    position: fixed; width: 10px; height: 10px;
+    background: #fff; border-radius: 50%;
+    pointer-events: none; z-index: 10000;
+    transform: translate(-50%, -50%);
+    mix-blend-mode: difference;
+    transition: width 0.3s, height 0.3s, background 0.3s;
+}
+#director-cursor.hover-state {
+    width: 60px; height: 60px;
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.5);
+    backdrop-filter: blur(4px);
+    mix-blend-mode: normal;
+}
+
+/* Page Transition Veil */
+#scene-veil {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    background: #000; z-index: 9999;
+    transform-origin: top;
+    transition: transform var(--transition-cinematic);
+}
+#scene-veil.hidden { transform: scaleY(0); }
+
+/* Global Navigation HUD */
+.global-hud {
+    position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%);
+    z-index: 9000; display: flex; gap: 30px;
+    font-family: var(--font-tech); font-size: 0.7rem; letter-spacing: 0.1em;
+    opacity: 0.5; transition: opacity var(--transition-snappy);
+}
+.global-hud:hover { opacity: 1; }
+.global-hud a {
+    color: #fff; text-decoration: none; position: relative; padding: 5px;
+    display: inline-block; transition: transform var(--transition-snappy);
+}
+.global-hud a::after {
+    content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 1px;
+    background: #fff; transform: scaleX(0); transform-origin: left; transition: transform var(--transition-snappy);
+}
+.global-hud a:hover::after, .global-hud a.active::after { transform: scaleX(1); }
+.global-hud a:hover { transform: translateY(-3px); }
+
+/* Common Image Masking / Blend utilities */
+.cinematic-bg {
+    position: absolute; top: -5%; left: -5%; width: 110%; height: 110%;
+    object-fit: cover; opacity: 0.4;
+    mix-blend-mode: screen;
+}
+.vignette-mask {
+    position: absolute; top:0; left:0; width:100%; height:100%;
+    background: radial-gradient(circle at center, transparent 30%, var(--bg-void) 90%);
+}
